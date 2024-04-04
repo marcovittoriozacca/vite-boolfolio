@@ -16,22 +16,27 @@ export default{
   },
 
   methods:{
-    getProjects(){
-      axios.get('http://127.0.0.1:8000/api/projects').then((res) => {
-        store.projects = res.data.projects;
+    getProjects(pagination){
+      axios.get('http://127.0.0.1:8000/api/projects', { params:{ page: pagination} }).then((res) => {
+        store.currentPage = res.data.projects.current_page;
+        store.lastPage = res.data.projects.last_page;
+        store.projects = res.data.projects.data;
+
       })
 
     }
   },
   mounted() {
-    this.getProjects();
+    this.getProjects(1);
   },
 }
 
 </script>
 
 <template>
-  <AppMain/>
+  <AppMain
+    @change-page="getProjects" 
+  />
 </template>
 
 <style lang="scss" scoped>
