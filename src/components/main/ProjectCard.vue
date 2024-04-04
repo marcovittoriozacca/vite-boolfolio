@@ -3,14 +3,28 @@ export default {
     name: 'ProjectCard',
     props: ['project'],
     
+    methods: {
+        setImg(path){
+            switch (true) {
+                case path == null:
+                    return 'https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4=';
+                    
+                case path.includes('proj_images/'):
+                    return `http://127.0.0.1:8000/storage/${path}`
+
+                default:
+                    return path
+            }
+        }
+    },
+
 }
 </script>
 
 <template>
     <div class="card">
         <figure>
-            <img class="card-img-top" v-if="project.proj_thumb" :src="project.proj_thumb" :alt="project.name" />
-            <img class="card-img-top img-fluid" v-else src="https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4=" :alt="project.name" />
+            <img class="card-img-top" :src=setImg(project.proj_thumb) :alt="project.name" />
         </figure>
         <div class="card-body">
             <h4 class="card-title">{{ project.name }}</h4>
