@@ -27,24 +27,8 @@ export default {
             <img class="card-img-top" :src=setImg(project.proj_thumb) :alt="project.name" />
         </figure>
         <div class="card-body">
-            <h4 class="card-title">{{  }}</h4>
-            <router-link :to="{name: 'single-project', params: { slug: project.slug }}">{{ project.name }}</router-link>
+            <router-link :to="{name: 'single-project', params: { slug: project.slug }}" class="page-link text-decoration-underline">{{ project.name }}</router-link>
             <p class="card-text text-truncate ">{{ project.description }}</p>
-
-            <!-- project type -->
-            <p v-if="project.type" class="card-text">{{ project.type.name }}</p>
-
-            <!-- used technologies -->
-            <div v-if="project.technology.length > 0">
-                <h5>Tecnologie utilizzate:</h5>
-                <ul class="list-unstyled d-flex flex-wrap column-gap-2" >
-                    <li v-for="(technology, index) in project.technology" :key="technology.id">
-                        {{ technology.name }}
-                    </li>
-                </ul>
-            </div>
-            
-            
         </div>
     </div>
 </template>
