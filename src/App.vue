@@ -1,5 +1,4 @@
 <script>
-import axios from 'axios';
 import { store } from './store';
 
 import AppHeader from './components/header/AppHeader.vue';
@@ -30,7 +29,7 @@ export default{
 
 
   <main>
-    <router-view></router-view>
+    <router-view/>
   </main>
 
 </template>
