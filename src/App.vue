@@ -34,9 +34,14 @@ export default{
 </script>
 
 <template>
+
+  <main>
+    <router-view></router-view>
+  </main>
+<!-- 
   <AppMain
     @change-page="getProjects" 
-  />
+  /> -->
 </template>
 
 <style lang="scss" scoped>

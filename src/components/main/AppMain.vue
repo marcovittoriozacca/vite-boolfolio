@@ -21,8 +21,6 @@ export default {
 </script>
 
 <template>
-    <main class="pb-4">
-
         <div class="container">
             <h1 class="text-center py-3">Progetti</h1>
             <div class="row row-gap-4">
@@ -62,7 +60,6 @@ export default {
             </div>
 
         </div>
-    </main>
 </template>
 
 <style lang="scss" scoped>
