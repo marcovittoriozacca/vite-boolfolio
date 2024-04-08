@@ -23,16 +23,25 @@ export default {
 
 <template>
     <div class="card">
-        <figure>
-            <img class="card-img-top" :src=setImg(project.proj_thumb) :alt="project.name" />
-        </figure>
+        <router-link :to="{name: 'single-project', params: { slug: project.slug }}">
+            <figure class="overflow-hidden">
+                <img class="card-img-top" :src=setImg(project.proj_thumb) :alt="project.name" />
+            </figure>
+        </router-link>
         <div class="card-body">
-            <router-link :to="{name: 'single-project', params: { slug: project.slug }}" class="page-link text-decoration-underline">{{ project.name }}</router-link>
+            <router-link :to="{name: 'single-project', params: { slug: project.slug }}" class="text-decoration-none">{{ project.name }}</router-link>
             <p class="card-text text-truncate ">{{ project.description }}</p>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-    
+    figure{
+        img{
+            transition: .2s all ease-out;
+            &:hover{
+                transform: scale(120%);
+            }
+        }
+    }
 </style>
