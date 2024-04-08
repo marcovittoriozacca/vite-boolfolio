@@ -2,11 +2,14 @@
 import axios from 'axios';
 import { store } from './store';
 
-import AppMain from './components/main/AppMain.vue';
+import AppHeader from './components/header/AppHeader.vue';
+import AppProjects from './components/pages/AppProjects.vue';
+
 
 export default{
   components:{
-    AppMain,
+    AppHeader,
+    AppProjects,
   },
 
   data() {
@@ -35,9 +38,16 @@ export default{
 
 <template>
 
+  <header>
+    <AppHeader/>
+  </header>
+
+
   <main>
     <router-view></router-view>
   </main>
+
+
 <!-- 
   <AppMain
     @change-page="getProjects" 

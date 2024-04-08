@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-    <div class="vh-100 d-flex align-items-center justify-content-center">
+    <div id="page-not-found" class="d-flex align-items-center justify-content-center">
         <h1 class="text-center">ERROR 404 
           <br>  Page not found
         </h1>
@@ -13,4 +13,8 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+
+#page-not-found{
+    height: calc(100vh - 66px);
+}
 </style>

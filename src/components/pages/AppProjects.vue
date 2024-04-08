@@ -1,10 +1,10 @@
 <script>
 import { store } from '../../store';
 
-import ProjectCard from './ProjectCard.vue';
+import ProjectCard from '../main/ProjectCard.vue';
 
 export default {
-    name: 'AppMain',
+    name: 'AppProjects',
 
     components:{
         ProjectCard,
