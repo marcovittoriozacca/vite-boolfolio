@@ -27,7 +27,8 @@ export default {
             <img class="card-img-top" :src=setImg(project.proj_thumb) :alt="project.name" />
         </figure>
         <div class="card-body">
-            <h4 class="card-title">{{ project.name }}</h4>
+            <h4 class="card-title">{{  }}</h4>
+            <router-link :to="{name: 'single-project', params: { slug: project.slug }}">{{ project.name }}</router-link>
             <p class="card-text text-truncate ">{{ project.description }}</p>
 
             <!-- project type -->

@@ -9,7 +9,7 @@
     <nav class="navbar navbar-expand-sm">
         <div class="container">
             <div class="d-flex align-items-center">
-                <a class="navbar-brand me-2" href="#">Boolfolio</a>
+                <router-link :to="{name: 'home'}" class="nav-link fs-4 text-white">Boolfolio</router-link>
                 <img width="50" src="/boolean-logo.jpg" alt="">
             </div>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
@@ -21,6 +21,9 @@
                 <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                     <li class="nav-item">
                         <router-link :to="{name: 'home'}" class="nav-link text-white">Home</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link :to="{name: 'projects'}" class="nav-link text-white">Progetti</router-link>
                     </li>
                 </ul>
             </div>
