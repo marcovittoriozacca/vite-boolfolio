@@ -1,4 +1,5 @@
 <script>
+import { store } from '../../store';
 import axios from 'axios';
 
 export default {
@@ -6,13 +7,14 @@ export default {
 
     data() {
         return {
+            store,
             project: [],
         }
     },
 
     methods: {
         getSingleProject(){
-            axios.get(`http://127.0.0.1:8000/api/projects/${this.$route.params.slug}`)
+            axios.get(`${store.laravelServer}/api/projects/${this.$route.params.slug}`)
             .then((r) => {
                     this.project = r.data.project;
             })
