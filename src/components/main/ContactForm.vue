@@ -7,7 +7,29 @@ export default {
 
     data() {
         return {
-            
+            firstname: '',
+            surname: '',
+            email: '',
+            content: '',
+        }
+    },
+
+    methods: {
+        sendEmail(){
+            //variables reset
+            this.firstname = '';
+            this.firstname = '';
+            this.email = '';
+            this.content = '';
+
+            const data = {
+                firstname: this.firstname,
+                surname: this.firstname,
+                email: this.email,
+                content: this.content,
+            }
+
+            axios.post(`${store.laravelServer}/api/contacts`, data).then((res) => console.log(res));
         }
     },
 }
@@ -19,7 +41,7 @@ export default {
 
 <div class="container">
     <h1 class="text-center py-5">Contact Us!</h1>
-    <form action="" method="">
+    <form action="" method="" @submit.prevent="sendEmail()">
         <div class="row">
             <div class="col-6">
                 <div class="mb-3">
@@ -30,6 +52,7 @@ export default {
                         name="firstname"
                         id="firstname"
                         placeholder="Insert your name here..."
+                        v-model="firstname"
                     />
                 </div>
             </div>
@@ -42,6 +65,7 @@ export default {
                         name="surname"
                         id="surname"
                         placeholder="Insert your surname here..."
+                        v-model="surname"
                     />
                 </div>
             </div>
@@ -49,18 +73,19 @@ export default {
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input
-                        type="text"
+                        type="email"
                         class="form-control"
                         name="email"
                         id="email"
                         placeholder="example@mail.com"
+                        v-model="email"
                     />
                 </div>
             </div>
             <div class="col-12">
                 <div class="mb-3">
                     <label for="content" class="form-label">Email Content</label>
-                    <textarea class="form-control" name="content" id="content" rows="3"></textarea>
+                    <textarea class="form-control" name="content" id="content" rows="3" v-model="content"></textarea>
                 </div>
             </div>
             <div class="mb-3">
