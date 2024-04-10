@@ -29,7 +29,6 @@ export default {
             }
 
             await axios.post(`${store.laravelServer}/api/contacts`, data).then((res) => {
-                console.log(res)
                 this.success = res.data.success;
                 if(!this.success){
                     this.errors = res.data.errors;
@@ -62,11 +61,17 @@ export default {
                     <input
                         type="text"
                         class="form-control"
+                        :class="{'is-invalid' : errors.firstname}"
                         name="firstname"
                         id="firstname"
                         placeholder="Insert your name here..."
                         v-model="firstname"
                     />
+                    <div v-if="errors?.firstname">
+                        <p class="text-danger" v-for="(error, index) in errors.firstname" :key="`error_firstname${index}`">
+                            {{ error }}
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="col-6">
@@ -75,11 +80,17 @@ export default {
                     <input
                         type="text"
                         class="form-control"
+                        :class="{'is-invalid' : errors.surname}"
                         name="surname"
                         id="surname"
                         placeholder="Insert your surname here..."
                         v-model="surname"
                     />
+                    <div v-if="errors?.surname">
+                        <p class="text-danger" v-for="(error, index) in errors.surname" :key="`error_surname${index}`">
+                            {{ error }}
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="col-12">
@@ -88,17 +99,28 @@ export default {
                     <input
                         type="text"
                         class="form-control"
+                        :class="{'is-invalid' : errors.email}"
                         name="email"
                         id="email"
                         placeholder="example@mail.com"
                         v-model="email"
                     />
+                    <div v-if="errors?.email">
+                        <p class="text-danger" v-for="(error, index) in errors.email" :key="`error_email${index}`">
+                            {{ error }}
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="col-12">
                 <div class="mb-3">
                     <label for="content" class="form-label">Email Content</label>
-                    <textarea class="form-control" name="content" id="content" rows="3" v-model="content"></textarea>
+                    <textarea class="form-control" :class="{'is-invalid' : errors.content}" name="content" id="content" rows="3" v-model="content"></textarea>
+                </div>
+                <div v-if="errors?.content">
+                    <p class="text-danger" v-for="(error, index) in errors.content" :key="`error_content${index}`">
+                        {{ error }}
+                    </p>
                 </div>
             </div>
             <div class="mb-3">
