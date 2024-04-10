@@ -23,7 +23,10 @@
                         <router-link :to="{name: 'home'}" class="btn router-link">Home</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link :to="{name: 'projects'}" class="btn router-link">Progetti</router-link>
+                        <router-link :to="{name: 'projects'}" class="btn router-link">Projects</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link :to="{name: 'contact-us'}" class="btn router-link">Contact Us</router-link>
                     </li>
                 </ul>
             </div>

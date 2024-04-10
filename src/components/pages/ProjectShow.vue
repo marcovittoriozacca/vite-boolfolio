@@ -106,18 +106,18 @@ export default {
             </div>
             <div class="row justify-content-center text-center">
                 <div v-if="project.link != null" class="col-4 align-self-center">
-                    <h4>Link diretto del progetto</h4>
+                    <h4>Direct link to the project</h4>
                     <a :href="project.link" target="_blank">{{ project.link }}</a>
                 </div>
                 <div class="col-4">
                     <div v-if="project.type" class="mt-3">
-                        <h4>Tipologia progetto:</h4>
+                        <h4>Project Type</h4>
                         <span :style="{color: setTypeColor(project.type.name)}">{{ project.type.name}}</span>
                     </div>
                 </div>
                 <div class="col-4">
                     <div v-if="project.technology && project.technology.length > 0" class="py-3">
-                        <h4>Tecnologie utilizzate:</h4>
+                        <h4>Technologies used in this project</h4>
                         <span v-for="(technology, index) in project.technology" :key="technology.id" :style="{color: setTechnologyColor(technology.name)}">
                         {{ technology.name }} <br>
                         </span>

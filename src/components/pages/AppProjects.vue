@@ -38,7 +38,7 @@ export default {
 
 <template>
         <div class="container">
-            <h1 class="text-center py-3">Progetti</h1>
+            <h1 class="text-center py-3">Projects</h1>
             <div class="row row-gap-4">
                 <div class="col-3" v-for="(project, index) in store.projects" :key="project.id">
                     <!-- Single project card -->
