@@ -11,11 +11,16 @@ export default {
             surname: '',
             email: '',
             content: '',
+
+            errors: {},
+            success: false,
+
         }
     },
 
     methods: {
         async sendEmail(){
+            this.success = false;
             const data = {
                 firstname: this.firstname,
                 surname: this.surname,
@@ -24,13 +29,18 @@ export default {
             }
 
             await axios.post(`${store.laravelServer}/api/contacts`, data).then((res) => {
-                console.log(res);
-
-                //variables reset
-                this.firstname = '';
-                this.surname = '';
-                this.email = '';
-                this.content = '';
+                console.log(res)
+                this.success = res.data.success;
+                if(!this.success){
+                    this.errors = res.data.errors;
+                }else{
+                    //variables reset
+                    this.firstname = '';
+                    this.surname = '';
+                    this.email = '';
+                    this.content = '';
+                    this.errors = {};
+                }
             });
 
         }
@@ -76,7 +86,7 @@ export default {
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input
-                        type="email"
+                        type="text"
                         class="form-control"
                         name="email"
                         id="email"
