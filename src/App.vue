@@ -1,6 +1,4 @@
 <script>
-import { store } from './store';
-
 import AppHeader from './components/header/AppHeader.vue';
 import AppProjects from './components/pages/AppProjects.vue';
 
@@ -10,13 +8,6 @@ export default{
     AppHeader,
     AppProjects,
   },
-
-  data() {
-    return {
-      store,
-    }
-  },
-
 }
 
 </script>
@@ -34,7 +25,4 @@ export default{
 
 </template>
 
-<style lang="scss" scoped>
-
-
-</style>
+<style lang="scss" scoped></style>
