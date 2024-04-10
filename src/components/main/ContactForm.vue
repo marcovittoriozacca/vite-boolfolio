@@ -15,21 +15,24 @@ export default {
     },
 
     methods: {
-        sendEmail(){
-            //variables reset
-            this.firstname = '';
-            this.firstname = '';
-            this.email = '';
-            this.content = '';
-
+        async sendEmail(){
             const data = {
                 firstname: this.firstname,
-                surname: this.firstname,
+                surname: this.surname,
                 email: this.email,
                 content: this.content,
             }
 
-            axios.post(`${store.laravelServer}/api/contacts`, data).then((res) => console.log(res));
+            await axios.post(`${store.laravelServer}/api/contacts`, data).then((res) => {
+                console.log(res);
+
+                //variables reset
+                this.firstname = '';
+                this.surname = '';
+                this.email = '';
+                this.content = '';
+            });
+
         }
     },
 }
