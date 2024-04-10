@@ -5,6 +5,7 @@ import NotFound from './components/pages/NotFound.vue';
 import AppProjects from './components/pages/AppProjects.vue';
 import ProjectShow from './components/pages/ProjectShow.vue';
 import ContactUs from './components/pages/ContactUs.vue';
+import ContactUsSuccess from './components/pages/ContactUsSuccess.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -28,6 +29,11 @@ const router = createRouter({
             path: '/contact-us',
             name: 'contact-us',
             component: ContactUs,
+        },
+        {
+            path: '/contact-us-success',
+            name: 'contact-us-success',
+            component: ContactUsSuccess,
         },
         {
             path: '/:patchMatch(.*)*',

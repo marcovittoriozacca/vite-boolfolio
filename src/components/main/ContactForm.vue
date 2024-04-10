@@ -39,6 +39,8 @@ export default {
                     this.email = '';
                     this.content = '';
                     this.errors = {};
+
+                    this.$router.push('contact-us-success');
                 }
             });
 
